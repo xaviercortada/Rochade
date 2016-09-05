@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Rochade:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Rochade_jar</output-path>
+    <root id="archive" name="Rochade.jar">
+      <element id="module-output" name="Rochade" />
+      <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
+      <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+      <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.2.Final" />
+      <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.2.2.Final" />
+      <element id="library" level="project" name="Maven: javax.annotation:jsr250-api:1.0" />
+      <element id="library" level="project" name="Maven: javax.el:el-api:2.2" />
+      <element id="library" level="project" name="Maven: javax.enterprise:cdi-api:1.1" />
+      <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+      <element id="library" level="project" name="Maven: javax.transaction:jta:1.1" />
+      <element id="library" level="project" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" />
+    </root>
+  </artifact>
+</component>
