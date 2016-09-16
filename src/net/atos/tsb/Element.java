@@ -2,10 +2,7 @@ package net.atos.tsb;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -14,6 +11,11 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "elements")
+@NamedQueries({
+        @NamedQuery(name = "Element.findByObjetoDossier",
+                query = "SELECT e FROM Element e WHERE e.Objeto = :objeto and e.Dossier = :dossier")
+})
+
 public class Element implements Serializable {
 
     @Id @GenericGenerator(name = "gen", strategy = "increment") @GeneratedValue(generator = "gen")

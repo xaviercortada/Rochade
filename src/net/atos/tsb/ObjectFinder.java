@@ -30,9 +30,10 @@ public class ObjectFinder {
         emf.close();
     }
 
-    public void startHPQC(String sourcePath){
+    public void startHPQC(String sourcePath, String dossier){
         int procesados = 0;
         int nuevos = 0;
+        int idDossier = Integer.parseInt(dossier);
 
         em.getTransaction().begin();
 
@@ -52,7 +53,9 @@ public class ObjectFinder {
                 }
                 try{
                     HPQCElement el = new HPQCElement(line);
-                    if(insertJPAElement(service, el)) nuevos++;
+                    if(idDossier == 0 || el.dossier == idDossier) {
+                        if (insertJPAElement(service, el)) nuevos++;
+                    }
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 } catch (HPQCElementException e) {
@@ -311,8 +314,12 @@ public class ObjectFinder {
 
                     item.setDocumento(el.documentacion ? 1 : 0);
                     item.setSubsistem(el.subsistem);
+                    if(el.criticidad != null)
+                        item.setCriticidad(Integer.parseInt(el.criticidad));
                     service.update(item);
                 } else {
+                    if(el.criticidad != null)
+                        item.setCriticidad(Integer.parseInt(el.criticidad));
                     item.setEstado('I');
                     service.update(item);
                 }
@@ -365,7 +372,7 @@ public class ObjectFinder {
         //em.getTransaction().begin();
 
         try {
-            Element item = service.findElementByNombre(el.nombre);
+            Element item = service.findElementByNombre(el.nombre, el.dossier);
 
             if (item == null) {
                 item = new Element(el.nombre, el.dossier, el.tipo);

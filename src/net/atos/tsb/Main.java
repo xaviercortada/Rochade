@@ -17,7 +17,7 @@ public class Main {
         }
 
 
-        
+
 
         if(modo.equalsIgnoreCase("R")) {
             ObjectFinder finder = new ObjectFinder(username, password);
@@ -28,7 +28,7 @@ public class Main {
             finder.close();
         }else if(modo.equalsIgnoreCase("H")) {
             ObjectFinder finder = new ObjectFinder();
-            finder.startHPQC(path);
+            finder.startHPQC(path, subsistem);
             finder.close();
         }else if(modo.equalsIgnoreCase("X")){
             ObjectFinder finder = new ObjectFinder();

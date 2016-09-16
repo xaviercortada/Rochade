@@ -28,6 +28,7 @@ public class Rochade implements Serializable {
     private String tipo;
     private String subsistem;
     private char estado;
+    private Integer criticidad;
 
     public Rochade(){
 
@@ -41,6 +42,8 @@ public class Rochade implements Serializable {
         this.fecha_creacion = el.fechaCreacion;
         this.fecha_modificacion = el.fechaModi;
         this.subsistem = el.subsistem;
+        if(el.criticidad != null)
+            this.criticidad = Integer.parseInt(el.criticidad);
     }
 
     public long getIdrochade() {
@@ -105,5 +108,13 @@ public class Rochade implements Serializable {
 
     public void setEstado(char estado) {
         this.estado = estado;
+    }
+
+    public Integer getCriticidad() {
+        return criticidad;
+    }
+
+    public void setCriticidad(Integer criticidad) {
+        this.criticidad = criticidad;
     }
 }

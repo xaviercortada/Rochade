@@ -15,12 +15,14 @@ public class TSBElement extends Object {
     static final int fecha_creacion = 2;
     static final int fecha_modificacion = 3;
 
+
     String tipo;
     String nombre;
     String subsistem;
     boolean documentacion;
     Date fechaCreacion;
     Date fechaModi;
+    String criticidad;
 
     public TSBElement(String line){
 
@@ -50,6 +52,12 @@ public class TSBElement extends Object {
         }else{
             Calendar cal = Calendar.getInstance();
             this.fechaModi = cal.getTime();
+        }
+
+        if(s.length >= 5) {
+            this.criticidad = s[4];
+        }else{
+            this.criticidad = null;
         }
     }
 

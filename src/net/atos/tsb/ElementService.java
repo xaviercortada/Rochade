@@ -21,9 +21,12 @@ public class ElementService {
         return el;
     }
 
-    public Element findElementByNombre(String nombre){
-        TypedQuery<Element> query = em.createQuery("SELECT e FROM Element e WHERE e.Objeto = :nombre", Element.class);
-        query.setParameter("nombre", nombre);
+    public Element findElementByNombre(String objeto, long dossier){
+        TypedQuery<Element> query = em.createNamedQuery("Element.findByObjetoDossier", Element.class);
+        query.setParameter("objeto", objeto);
+        query.setParameter("dossier", dossier);
+
+        //TypedQuery<Element> query = em.createQuery("SELECT e FROM Element e WHERE e.Objeto = :nombre", Element.class);
         List<Element> list = query.getResultList();
 
         if(list.size() > 0)
